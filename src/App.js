@@ -17,6 +17,7 @@ function App() {
           <AllQuotes />
         </Route>
         <Route path='/quotes/:quoteId'>
+          {/* By updating 'QuoteDetail.js' to use the 'useRouteMatch()' hook, we can change this path to something else, for example 'path='/quote/:quoteId'', without having to also make changes to the <Route> components in 'QuoteDetail.js' */}
           <QuoteDetail />
         </Route>
         <Route path='/new-quote'>

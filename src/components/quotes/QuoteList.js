@@ -29,8 +29,8 @@ const QuoteList = props => {
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
 
   const changeSortingHandler = () => {
-    history.push(`/quotes?sort=${isSortingAscending ? 'desc' : 'asc'}`);
-    // Running 'history.push()' re-evaluates the component, because when we push a page, react-router sees that we changed the history
+    history.push(`${location.pathname}?sort=${isSortingAscending ? 'desc' : 'asc'}`);
+    // 'console.log(location.pathname)' returns '/quotes
   };
 
   return (
