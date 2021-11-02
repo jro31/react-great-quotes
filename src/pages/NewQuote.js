@@ -1,21 +1,26 @@
+import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 // 'useHistory' is named as such because it allows us to edit the browser history (the history of pages that we've visited')
 
 import QuoteForm from '../components/quotes/QuoteForm';
+import useHttp from '../hooks/use-http';
+import { addQuote } from '../lib/api';
 
 const NewQuote = () => {
+  const { sendRequest, status } = useHttp(addQuote);
   const history = useHistory(); // Returns a history object
 
-  const addQuoteHandler = quoteData => {
-    console.log(quoteData);
+  useEffect(() => {
+    if (status === 'completed') {
+      history.push('/quotes');
+    } // Could also add a check for an error here, but in the name of simplicity, not added
+  }, [status, history]);
 
-    history.push('/quotes');
-    // 'history.push' pushes a new page onto our stack of pages, so essentially adds a new page to our history
-    // 'history.replace' replaces the current page, much like a redirect
-    // The difference is that with 'push' we can go 'back' (with the back button) to the current page. With 'replace', we can't.
+  const addQuoteHandler = quoteData => {
+    sendRequest(quoteData);
   };
 
-  return <QuoteForm onAddQuote={addQuoteHandler} />;
+  return <QuoteForm isLoading={status === 'pending'} onAddQuote={addQuoteHandler} />;
 };
 
 export default NewQuote;
