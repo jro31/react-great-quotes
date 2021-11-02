@@ -21,3 +21,10 @@ The second project based on *'Section 20: Building a Multi-Page SPA with React R
   * Everything in this commit has been covered in previous commits in this, or in other repos, so doesn't contain explanation comments
 * Adding the comments feature, to complete the app - [Commit link](https://github.com/jro31/react-great-quotes/commit/b5bc098a0d051644156ca1c7818c5af2c2e37e69)
   * This commit also has nothing new, so look at previous commits for similar code with explanations
+
+<br />
+
+It also contains one commit from *'Section 21: Deploying React Apps'*, which demos:
+
+* Implementing lazy loading, in order to only load code as it's needed - [Commit link](https://github.com/jro31/react-great-quotes/commit/2b67e3b5b18972a5acfea77c39cba149a65fe3d7)
+  * Using `React.lazy()` and the `<Suspense>` component with the `fallback` prop 
